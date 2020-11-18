@@ -1,0 +1,17 @@
+version: '3.5'
+services:
+  app:
+    container_name: docker-node-mongo
+    build: .
+    command: npm start
+    volumes: 
+      - ./:/usr/src/app
+    ports:
+      - '4000:4000'
+    external_links:
+      - mongo
+  mongo:
+    container_name: mongo
+    image: mongo
+    ports:
+      - '27017:27017'
