@@ -1,9 +1,9 @@
-const exrpress = require('express');
+const express = require('express');
 // const bcrypt = require('bcrypt')
 const logger = require('../config/logger');
 const user = require('../models/user');
 const User = require('../models/user');
-const app = exrpress();
+const app = express();
 
 /**
   * @swagger
@@ -17,7 +17,6 @@ const app = exrpress();
   *                 description: Bad request
   */
 app.get('/users', (req, res)=>{
-    
     user.find({}).exec((err, usersDB) => {
         if (err) {
             logger.error(err)
